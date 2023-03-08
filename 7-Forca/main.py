@@ -1,7 +1,9 @@
+import random
+
 lista_de_palavras = ["azul", "banana", "casamento", "distopia", "expurgo", "financiamento", "garganta", "horta", "incorporado", "jovem"]
 
-import random
 palavra_escolhida = lista_de_palavras[random.randint(0, len(lista_de_palavras) - 1)]
+tamanho = len(palavra_escolhida)
 # palavra_escolhida = random.choice(lista_de_palavras)
 
 #print(f'Teste - palavra escolhida: {palavra_escolhida}')
@@ -13,14 +15,25 @@ for letra in palavra_escolhida:
 
 print (' '.join(display))
 
-chute = input("Chuta uma letra ai, meu chapa: ").lower()
+tentativas = tamanho
+while tentativas > 0:
 
-i = 0
-for letra in palavra_escolhida:
-    if chute == letra:
-        display[i] = chute
-        i += 1
-    else:
-        i += 1
+    chute = input("Chuta uma letra ai, meu chapa: ").lower()
+    
+    for posicao in range(tamanho):
 
-print(' '.join(display))
+        letra = palavra_escolhida[posicao]
+
+        if chute == letra:
+            display[posicao] = chute
+        
+    tentativas -= 1
+
+    print(' '.join(display))
+    
+    if tentativas >= 2:
+        print(f'você tem {tentativas} tentativas restantes, otário!')
+    else: 
+        print(f'você tem {tentativas} tentativa restante, otário!')
+
+    

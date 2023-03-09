@@ -15,8 +15,7 @@ for letra in palavra_escolhida:
 
 print (' '.join(display))
 
-tentativas = tamanho
-while tentativas > 0:
+while display.count('_') > 0:
 
     chute = input("Chuta uma letra ai, meu chapa: ").lower()
     
@@ -27,13 +26,6 @@ while tentativas > 0:
         if chute == letra:
             display[posicao] = chute
         
-    tentativas -= 1
-
     print(' '.join(display))
-    
-    if tentativas >= 2:
-        print(f'você tem {tentativas} tentativas restantes, otário!')
-    else: 
-        print(f'você tem {tentativas} tentativa restante, otário!')
 
     

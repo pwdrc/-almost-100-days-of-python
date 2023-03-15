@@ -9,9 +9,11 @@ def criptografar(texto, deslocamento):
     texto_cifrado = []
     texto_plano = list(texto)
     for letra in texto_plano:
-        if alfabeto.index(letra) + deslocamento > len(alfabeto):
-            deslocamento -=  alfabeto.index(letra) + len(alfabeto)
-        texto_cifrado += alfabeto[alfabeto.index(letra) + deslocamento]
+        print(alfabeto.index(letra) + deslocamento >= len(alfabeto))
+        if alfabeto.index(letra) + deslocamento >= len(alfabeto):
+            texto_cifrado += alfabeto[deslocamento - alfabeto.index(letra) + len(alfabeto)]
+        else: texto_cifrado += alfabeto[alfabeto.index(letra) + deslocamento]
+
     print(texto_cifrado)
 
 if opcao == "c":
